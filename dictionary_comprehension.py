@@ -24,3 +24,5 @@ print(interface_speed)
 device_types = {"Router1": "Router", "Switch1": "Switch", "Router2": "Router"}
 routers_only = {device: type for device, type in device_types.items() if type == "Router"}
 print(routers_only)  # Output: {'Router1': 'Router', 'Router2': 'Router'}
+
+
