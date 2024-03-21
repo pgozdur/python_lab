@@ -12,3 +12,5 @@
       lineinfile:
         path: ~/simulated_configs/router1_config.txt
         line: 'ip route 0.0.0.0 0.0.0.0 192.168.1.254'
+
+
