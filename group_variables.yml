@@ -1,0 +1,23 @@
+---
+- name: Generate Configurations for Network Devices
+  hosts: all  # Targeting all hosts in the inventory
+  connection: local
+  gather_facts: no
+
+  tasks:
+    - name: Ensure output directory exists
+      ansible.builtin.file:
+        path: ./output_configs
+        state: directory
+
+    - name: Generate Configuration File for Each Router
+      ansible.builtin.template:
+        src: templates/network_config.j2
+        dest: "./output_configs/{{ hostname }}_config.txt"
+      when: inventory_hostname in groups['routers']  # Condition to associate with routers group
+
+    - name: Generate Configuration File for Each Switch
+      ansible.builtin.template:
+        src: templates/network_config.j2
+        dest: "./output_configs/{{ hostname }}_config.txt"
+      when: inventory_hostname in groups['switches']  # Condition to associate with switches group
