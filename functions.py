@@ -16,6 +16,7 @@ def ping(host="8.8.8.8", count=4):
     # This is just a placeholder for demonstration purposes
     return "Ping successful"
 
+
 greet()  # Output: Hello, Network Engineer!
 
 configure_interface("GigabitEthernet0/1", "192.168.1.1")
