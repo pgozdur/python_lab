@@ -1,0 +1,14 @@
+---
+- name: Modify Simulated Network Configuration
+  hosts: localhost
+  tasks:
+    - name: Ensure the directory for simulated configurations exists
+      ansible.builtin.file:
+        path: ~/simulated_configs  # Adjust the path as needed
+        state: directory
+        mode: '0755'
+
+    - name: Add a new line to the configuration file
+      lineinfile:
+        path: ~/simulated_configs/router1_config.txt
+        line: 'ip route 0.0.0.0 0.0.0.0 192.168.1.254'

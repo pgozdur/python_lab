@@ -4,13 +4,13 @@
   hosts: localhost
   tasks:
     - name: Ensure directory for simulated network configurations exists
-      file:
+      ansible.builtin.file:
         path: ~/simulated_configs
         state: directory
         mode: '0755'  # Sets the permissions for the directory
 
     - name: Create a simulated network configuration file
-      copy:
+      ansible.builtin.copy:
         content: |
           hostname Router1
           interface GigabitEthernet0/1
