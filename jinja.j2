@@ -1,0 +1,7 @@
+configurations {
+{% for vlan in vlans %}
+  vlans {{ vlan.id }} {
+    description "{{ vlan.name }}";
+  }
+{% endfor %}
+}
