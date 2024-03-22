@@ -1,0 +1,16 @@
+---
+- name: Configure VLANs on Network Devices
+  hosts: all  # Targets all hosts in the inventory
+  gather_facts: no
+  connection : local
+  
+  tasks:
+      - name: Apply Cisco VLAN Configuration Role
+        include_role:
+          name: cisco_vlan_config
+        when: "'cisco_switches' in group_names"  # Condition to check for Cisco devices
+
+      - name: Apply Juniper VLAN Configuration Role
+        include_role:
+          name: juniper_vlan_config
+        when: "'juniper_switches' in group_names"  # Condition to check for Juniper devices
